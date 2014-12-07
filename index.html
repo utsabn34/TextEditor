@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Text Editor</title>
+<link type="text/css" rel="stylesheet" href="css/reset.css" />
+<link type="text/css" rel="stylesheet" href="css/layout.css" />
+</head>
+<body>
+<div class="main-wrapper">
+  <div class="title"> Text Editor </div>
+  <div class="menu">
+    <ul>
+      <li>
+        <button onclick="changeFont('editor','bold')"><strong>B</strong> </button>
+      </li>
+      <li>
+        <button onclick="changeFont('editor','italic')"><em>I</em> </button>
+      </li>
+      <li>
+        <button onclick="changeFont('editor','underline')"><u>U</u> </button>
+      </li>
+      <li>
+        <ul>
+          <li>
+            <input id="fsize" type="text" value="10" />
+          </li>
+          <li>
+            <button onclick="changeFont('editor','fontSize')">Size</button>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button onclick="changeFont('editor','adjustR')">R</button>
+      </li>
+      <li>
+        <button onclick="changeFont('editor','adjustC')">C</button>
+      </li>
+      <li>
+        <button onclick="changeFont('editor','adjustL')">L</button>
+      </li>
+      <li>
+      	<select id="fontFamily" value="" onclick="changeFont('editor','fontFamily')">
+        	<option value="1">Times New Roman</option>
+            <option value="2">Arial</option>
+            <option value="3">Verdana</option>
+            
+        </select>
+      </li>
+      <li> <button onclick="ShowSelectionInsideTextarea('editor')">Area</button>
+    </ul>
+  </div>
+  <div class="line"> </div>
+  <div class="main-body">
+    <textarea id="editor"></textarea>
+  </div>
+  <div class="footer"></div>
+</div>
+<script type="text/javascript" src="js/script.js">
+</script>
+</body>
+</html>
