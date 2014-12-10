@@ -6,11 +6,11 @@ window.onload=function(){
 	}
 
 function Editor(){
-	console.log("hello");
+	
 	//for bold
 	var bold=document.getElementById("bold");
 	bold.onclick=function(){
-		frame.document.execCommand("bold",false,5);
+		frame.document.execCommand("bold",false,null);
 	}
 	
 	//for italic

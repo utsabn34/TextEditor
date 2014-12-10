@@ -3,66 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Text Editor</title>
-<link type="text/css" rel="stylesheet" href="css/reset.css" />
-<link type="text/css" rel="stylesheet" href="css/layout.css" />
 </head>
-<body >
-<div class="main-wrapper">
-  <div class="title"> Text Editor </div>
-  <div class="menu">
-  
-    <ul>
-      <li>
-        <button name="bold" id="bold" ></button>
-      </li>
-      <li>
-        <button name="italic" id="italic"></button>
-      </li>
-      <li>
-        <button name="underline" id="underline"></button>
-      </li>
-      <li>
-     	<select name="txtSize" id="txtSize">
-        		<option value=""></option>
-        		<option value="1">10</option>
-       			<option value="2">11</option>
-        		<option value="3">13</option>
-                <option value="4">18</option>
-                <option value="5">24</option>
-                <option value="6">36</option>
-                <option value="7">48</option>
-    	</select>
-    
-	  </li>
-      <li>
-        <input type="color" id="txtColor" name="txtColor" value="#000">
-      </li>
-      <li>
-        <button name="link"id="link"></button>
-      </li>
-      <li>
-        <button name="unlink" id="unlink"></button>
-      </li>
-      <li>
-        <button name="ol" id="ol"></button>
-      </li>
-      <li>
-        <button name="ul" id="ul"></button>
-      </li>
-      <li>
-        <button name="hr" id="hr"></button>
-      </li>
-    </ul>
-  
-  </div>
-  <div class="line"> </div>
-  <div class="main-body">
-    <textarea id="editor"></textarea>
-    <iframe name="frame" id="frame"></iframe>
-  </div>
-  <div class="footer"></div>
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<body>
+<div class="txtEditor">
+
 </div>
-<script type="text/javascript" src="js/script.js">
+<script type="text/javascript" src="js/txtEditor.js">
 </script>
 </body>
 </html>
