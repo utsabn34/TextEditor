@@ -47,6 +47,11 @@
 	border-radius:5px;
 	cursor:pointer;
 }
+.menu #click{
+	width:30px;
+	height:20px;
+	
+}
 
 
 /*main-body styling*/
@@ -58,13 +63,14 @@
 	height:835px;
 	
 }
-.main-body textarea {
+.txtEditor #txtarea{
+	display:none;
 	width:750px;
-	height:835px;
+	height:135px;
 }
 .main-body iframe {
 	width:750px;
-	height:800px;
+	height:600px;
 }
 /*footer styling*/
 .footer{

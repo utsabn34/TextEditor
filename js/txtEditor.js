@@ -1,10 +1,13 @@
 // JavaScript Document
-var editor=new Editor();
+var txtarea=document.getElementById("txtarea");
+var editor=new Editor(txtarea);
 editor.initialize();
 editor.styling();
 
 
-function Editor(){
+//console.log(txteditor);
+
+function Editor(txtarea){
 	var that = this;
 	this.parent = (document.getElementsByClassName("txtEditor"))[0];	
 	this.list = this.parent.children[0];
@@ -18,6 +21,9 @@ function Editor(){
 	this.ol;
 	this.uol;
 	this.hr;
+	this.click;
+	this.txtarea=txtarea;
+	
 	
 	this.initialize=function(){
 		
@@ -148,24 +154,34 @@ function Editor(){
 		that.hr.style.backgroundImage="url(img/hr.png)";
 		li10.appendChild(that.hr);
 		ul.appendChild(li10);
+		
+		//click btn
+		var li11=document.createElement("li");
+		that.click=document.createElement("button");
+		that.click.id="click";
+		that.click.innerHTML="Click";
+		li11.appendChild(that.click);
+		ul.appendChild(li11);
 		menu.appendChild(ul);
 		that.parent.appendChild(menu);
 		
+		//line creation
 		var line=document.createElement("div");
 		line.className="line";
 		line.style.backgroundImage="url(img/bar.jpg)";
 		line.style.backgroundRepeat="repeat-x";
 		that.parent.appendChild(line); 
 		
+		//main body creation
 		var mainbdy=document.createElement("div");
 		mainbdy.className="main-body";
 		mainbdy.style.margin="0px auto";
 		//creation of txtarea inside main-body
-		that.txtarea=document.createElement("textarea"); 
-		that.txtarea.id="editor";
-		that.txtarea.style.display="none";
-		that.txtarea.style.overflow="hidden";
-		mainbdy.appendChild(that.txtarea);
+		//that.txtarea=document.createElement("textarea"); 
+		//that.txtarea.id="editor";
+		//that.txtarea.style.display="none";
+		//that.txtarea.style.overflow="hidden";
+		//mainbdy.appendChild(that.txtarea);
 		//creation of iframe inside main-body
 		that.frame=document.createElement("iframe");
 		that.frame.id="frame";
@@ -244,7 +260,16 @@ function Editor(){
 			that.unlink.onclick=function(){
 				frame.document.execCommand("UnLink",false,null);
 			}	
-		
+			var value=document.getElementById("click");
+			value.onclick=function(){
+				var frameObj = document.getElementById("frame");
+				
+				 var frameContent = frameObj.contentWindow.document.body.innerHTML;
+				 that.txtarea.innerHTML=frameContent;
+				 
+				 console.log(that.txtarea);
+				 //console.log(frameContent);
+			}
 			
 			
 		}
