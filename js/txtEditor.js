@@ -11,6 +11,7 @@ function Editor(txtarea){
 	var that = this;
 	this.parent = (document.getElementsByClassName("txtEditor"))[0];	
 	this.list = this.parent.children[0];
+	this.ajax;
 	this.bold;
 	this.italic;
 	this.underline;
@@ -21,7 +22,8 @@ function Editor(txtarea){
 	this.ol;
 	this.uol;
 	this.hr;
-	this.click;
+	this.save;
+	this.load;
 	this.txtarea=txtarea;
 	
 	
@@ -155,13 +157,23 @@ function Editor(txtarea){
 		li10.appendChild(that.hr);
 		ul.appendChild(li10);
 		
-		//click btn
+		//save btn
 		var li11=document.createElement("li");
-		that.click=document.createElement("button");
-		that.click.id="click";
-		that.click.innerHTML="Click";
-		li11.appendChild(that.click);
+		that.save=document.createElement("button");
+		that.save.id="save";
+		that.save.innerHTML="Save";
+		li11.appendChild(that.save);
 		ul.appendChild(li11);
+		menu.appendChild(ul);
+		that.parent.appendChild(menu);
+		
+		//load btn
+		var li12=document.createElement("li");
+		that.load=document.createElement("button");
+		that.load.id="load";
+		that.load.innerHTML="Load";
+		li12.appendChild(that.load);
+		ul.appendChild(li12);
 		menu.appendChild(ul);
 		that.parent.appendChild(menu);
 		
@@ -259,17 +271,34 @@ function Editor(txtarea){
 			//for unlink
 			that.unlink.onclick=function(){
 				frame.document.execCommand("UnLink",false,null);
-			}	
-			var value=document.getElementById("click");
+			}
+				
+			//for saving data 
+			var value=document.getElementById("save");
 			value.onclick=function(){
 				var frameObj = document.getElementById("frame");
 				
 				 var frameContent = frameObj.contentWindow.document.body.innerHTML;
 				 that.txtarea.innerHTML=frameContent;
-				 
-				 console.log(that.txtarea);
-				 //console.log(frameContent);
+				 that.ajax=new Ajax();
+				 that.ajax.submitFormAjax();
+				 return false;
 			}
+			
+					
+			//for loading data 
+			var values=document.getElementById("load");
+			values.onclick=function(){
+				that.ajax=new Ajax();
+				that.ajax.readDataAjax();
+				
+				var frameObj = document.getElementById("frame");
+				var frameContent = frameObj.contentWindow.document.body.innerHTML;
+				frameContent=that.txtarea.innerHTML;
+				console.log(frameContent);
+				return false;
+			}
+			
 			
 			
 		}
